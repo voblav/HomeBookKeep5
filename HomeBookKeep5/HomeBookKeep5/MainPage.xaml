@@ -1,14 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HomeBookKeep5"
              x:Class="HomeBookKeep5.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
-</ContentPage>
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master" BackgroundColor="#b9f6ca">
+            <ContentPage.Content>
+                <ScrollView Padding="5, 30, 5, 5">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="65" HeightRequest="65" Aspect="AspectFit" Source="zemnoi_shar.png" VerticalOptions="Center"></Image>
+                            <Label Text="User" VerticalOptions="Center"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Счета" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="spending.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Расходы" BackgroundColor="#008000" Clicked="ButtonSpending_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="incoming.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Доходы" BackgroundColor="#008000" Clicked="Button2_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Получено в кредит" BackgroundColor="#008000" Clicked="Button3_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Выдано в долг" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Категории доходов" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Категории расходов" BackgroundColor="#008000" Clicked="ButtonCostCats_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Единицы измерения" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Кредиторы и должники" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Валюты" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Отчеты" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                            <Image WidthRequest="24" HeightRequest="24" Aspect="AspectFit" Source="friends.png" HorizontalOptions="Start"></Image>
+                            <Button TextColor="White" Text="Пользователи" BackgroundColor="#008000" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand"></Button>
+                        </StackLayout>
+                    </StackLayout>
+                </ScrollView>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage BackgroundColor="#b9f6ca">
+            <ContentPage.Content>
+                <Label Text="This is DetailPage  :)" VerticalOptions="Center" HorizontalOptions="Center"></Label>
+            </ContentPage.Content>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HomeBookKeep5.Views.OneSpendingPage"
+             Title="Расход">
+    <Grid Padding="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="0" Grid.Row="0">
+            <Label Text="Дата" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="1">
+            <Label Text="Счет" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="2">
+            <Label Text="Категория" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="3">
+            <Label Text="Субкатегория" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="4">
+            <Label Text="Сумма" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="5">
+            <Label Text="Валюта" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="6">
+            <Label Text="Количество" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="7">
+            <Label Text="Комментарий" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="0" Grid.Row="8">
+            <Label Text="Ед.измерения" VerticalOptions="EndAndExpand" Margin="10" FontSize="Small" />
+        </StackLayout>
+
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="0">                    <!--Date-->
+            <Label x:Name="labelDate" Text="__.__.____" FontSize="Small" />
+            <!--<Entry Placeholder="__.__.____" CursorPosition="1"></Entry>-->
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="1">  
+            <Entry Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="2">                    <!--Category-->
+            <Entry x:Name="EntryCat" Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="3">                    <!--SubCategory-->
+            <Entry x:Name="EntrySubCat" Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="4">
+            <Entry Placeholder="0,00" CursorPosition="4" Keyboard="Numeric"></Entry>               <!--Sum-->
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="1" Grid.Row="5">                    <!--Currency-->
+            <Entry x:Name="EntryCurr" Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="1" Grid.Row="6">                    <!--quantity-->
+            <Editor Placeholder="" ></Editor>
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="1" Grid.Row="7">                    <!--Comment-->
+            <Entry Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+        <StackLayout BackgroundColor="YellowGreen" Grid.Column="1" Grid.Row="8">                  <!--Comment-->
+            <Entry x:Name="EntryUnit" Placeholder="" CursorPosition="1"></Entry>
+        </StackLayout>
+
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="0">                        <!--Date-->
+            <StackLayout>
+                <DatePicker Format="D" DateSelected="DatePicker_DateSelected">
+                    <DatePicker.MinimumDate>1/01/2019</DatePicker.MinimumDate>
+                    <DatePicker.MaximumDate>12/30/2019</DatePicker.MaximumDate>
+                </DatePicker>
+            </StackLayout>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="1">
+            
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="2">                    <!--Categories Picker-->
+            <Picker 
+                x:Name="CatPicker" 
+                IsVisible="False"
+                SelectedIndexChanged="Picker_SelectedIndexChanged"
+                ItemDisplayBinding="{Binding Name}"
+                />
+            <Button 
+                x:Name="BtnCatPicker" 
+                BackgroundColor="#e3f5e8" 
+                Image="friends24.png" 
+                HeightRequest="36" 
+                Clicked="BtnCatPicker_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="3">                  <!--SubCategories Picker-->
+            <Picker
+                x:Name="SubCatPicker"
+                IsVisible="False"
+                SelectedIndexChanged="SubCatPicker_SelectedIndexChanged"
+                ItemDisplayBinding="{Binding Name}"
+                />
+            <Button 
+                x:Name="BtnSubCatPicker" 
+                BackgroundColor="#e3f5e8" 
+                Image="friends24.png" 
+                HeightRequest="36" 
+                Clicked="BtnSubCatPicker_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="5">        <!--SubCategories Picker-->
+            <Picker
+                x:Name="CurrPicker"
+                IsVisible="False"
+                SelectedIndexChanged="CurrPicker_SelectedIndexChanged"
+                ItemDisplayBinding="{Binding Name}"
+                />
+            <Button 
+                x:Name="BtnCurrPicker" 
+                BackgroundColor="#e3f5e8" 
+                Image="friends24.png" 
+                HeightRequest="36" 
+                Clicked="BtnCurrPicker_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </StackLayout>
+        <StackLayout BackgroundColor="#e3f5e8" Grid.Column="2" Grid.Row="8">            <!--UnitsPicker-->
+            <Picker 
+                x:Name="UnitsPicker" 
+                IsVisible="False"
+                SelectedIndexChanged="UnitsPicker_SelectedIndexChanged"
+                ItemDisplayBinding="{Binding Name}"
+                />
+            <Button 
+                x:Name="BtnUnitsPicker" 
+                BackgroundColor="#e3f5e8" 
+                Image="friends24.png" 
+                HeightRequest="36" 
+                Clicked="BtnUnitsPicker_Clicked"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!--<StackLayout>
+            <Label x:Name="label" Text="Выберите дату" FontSize="Medium" />
+            <DatePicker Format="D" DateSelected="datePicker_DateSelected">
+                <DatePicker.MinimumDate>6/01/2016</DatePicker.MinimumDate>
+                <DatePicker.MaximumDate>6/30/2016</DatePicker.MaximumDate>
+            </DatePicker>
+        </StackLayout>-->
+        <!--<StackLayout BackgroundColor="YellowGreen" Grid.Column="2" Grid.Row="0">
+            <Image WidthRequest="40" HeightRequest="40" Aspect="AspectFit" Source="zemnoi_shar.png" VerticalOptions="Center"></Image>
+        </StackLayout>-->
+
+
+    </Grid>
+</ContentPage>
